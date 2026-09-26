@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "test": "playwright test",
+    "test:ui": "playwright test --ui",
     "test:bug01": "playwright test tests/bug-01-nome-repositorio.spec.js"
   },
   "devDependencies": {
