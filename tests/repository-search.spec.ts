@@ -1,7 +1,7 @@
 /**
  * TESTE REFERENTE A VALIDAÇÃO 02 NO RELATÓRIO.
  * Teste para validar a busca de um repositório por nome.
- * 
+ *
  * O que o teste faz:
  * 1. Acessa a página inicial da aplicação (https://localhost:44329/).
  * 2. Clica no link para ver outros repositórios.
@@ -10,15 +10,14 @@
  * 5. Valida se a tabela exibe ao menos um resultado contendo o texto "react".
  */
 
-
 import { test, expect } from '@playwright/test';
+import { gotoHome, openRepositoryListing, searchRepositories } from './helpers';
 
 test('should successfully search for a repository by name', async ({ page }) => {
-  await page.goto('https://localhost:44329/');
+  await gotoHome(page);
 
-  await page.getByRole('link', { name: 'Veja Outros Repositórios' }).click();
-  await page.getByRole('textbox').fill('react');
-  await page.getByRole('button', { name: 'Buscar' }).click();
+  await openRepositoryListing(page);
+  await searchRepositories(page, 'react');
 
   await expect(page.locator('table.table td').getByText('react').first()).toBeVisible();
 });
