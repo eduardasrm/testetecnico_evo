@@ -1,0 +1,11 @@
+{
+  "name": "testeabcevo-cursor",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:bug01": "playwright test tests/bug-01-nome-repositorio.spec.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0"
+  }
+}
